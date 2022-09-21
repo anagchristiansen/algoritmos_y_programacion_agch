@@ -7,10 +7,3 @@ if option.isnumeric():
         if ingredient== "1":
             ingredient = "Pimiento"
         else:ingredient
-
-    elif ==2:
-    else
-    
-
-
-is_vegetarian:
