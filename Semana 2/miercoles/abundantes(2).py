@@ -8,6 +8,6 @@ while aux > 1:
     aux -= 1
 
 if acum > number:
-    print (f" The numbe {number} is abundant")
+    print (f" The number {number} is abundant")
 else:
-    print (f" The numbe {number} is not abundant")
+    print (f" The number {number} is not abundant")
