@@ -111,18 +111,18 @@ while True:
 
         
 
-        ci_descuento = int(input("please enter a number"))
-        aux = ci_descuento - 1
-        cont = 0
+        # ci_descuento = int(input("please enter a number"))
+        # aux = ci_descuento - 1
+        # cont = 0
 
-        while aux > 1:
-            aux -= 1
-            if ci_descuento % aux == 0:
-                cont +=1
-            aux -= 1
+        # while aux > 1:
+        #     aux -= 1
+        #     if ci_descuento % aux == 0:
+        #         cont +=1
+        #     aux -= 1
 
-        if cont > 0:
-            print (f"You may save 40%")
+        # if cont > 0:
+        #     print (f"You may save 40%")
 
         
        
