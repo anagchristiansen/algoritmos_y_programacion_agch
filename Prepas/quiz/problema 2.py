@@ -47,6 +47,7 @@ juegos = {
     ],  
 }
 
+vendidos = {}
 print("\n****** WELCOME ******")
 while True:
     inicio = input("\nSelect your next action: \n \n1- Available games \n2- Shop and register \n3- Statistics \n action: ")
@@ -72,8 +73,22 @@ while True:
     if int(inicio) == 2:
         name= input("Please enter you name and last name: ")
         ci= input("Please enter your personal id: ")
-        number_game= int(input("Please enter the id of the game you selected: "))
         
+
+        juego = None
+        while juego == None:
+            number_game= int(input("Please enter the id of the game you selected: "))
+
+            for category, games in juegos.items():
+                for information in games:
+
+                    if number_game == information["id"]:
+                        juego = information
+
+            nombreJuwfo = juego["name"]
+            print(f"Nombre: {name}, Cedula: {ci}, Nombre del juego {nombreJuwfo}")
+            vendidos = []
+
         if number_game == 1:
             print("\nRECEIPE: \n")
             print(f"\n Client: {name} \n id: {ci} \n Overwatch2......60$")

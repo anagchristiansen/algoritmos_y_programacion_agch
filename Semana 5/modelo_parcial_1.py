@@ -29,9 +29,22 @@ def print_invoice(client):
     print("ID:", client.get ("id"))
     print("Age:", client.get ("age"))
     print("Gender:", client.get ("gender"))
-    print("NetAmount:", client.get (""))
+    print("NetAmount:", client.get ("id"))
 
 
+def get_net_amount(cliente, estudios):
+    return estudios.get(cliente.get("study").get("price"))
+
+def get_discount(client, net_amount, cont):
+    discount = 0
+    if client.get("gender") == "F" and int(client.get("age")) > 55:
+        discount += net_amount * 0.25
+    elif client.get("gender") == "M" and int(client.get("age")) > 6:
+        discount += net_amount * 0.25
+    if cont %2 != 0:
+        discount += net_amount*0.2
+
+    return discount
 
 
 def main():
@@ -51,16 +64,48 @@ def main():
                                     }
 
     clients = []
+    client_u = 0
+    client_r = 0
+    client_t = 0
+    total_discounts = 0
+    total_day = 0
+    total_u = 0
+    total_r = 0
+    total_t = 0
+
+
     
     print_welcome()
     while True:
         option = get_user_option(studies_dict_values)
         client = get_client_data(option)
-        print_invoice(client)
-
-
-
         clients.append(client)
+        net_amount = get_net_amount()
+        discount = get_discount(client, net_amount, len(clients))
+        total_amount = net_amount - discount
+        client["total"] = total_amount
+        total_day += total_amount
+        
+        if option.upper() == "U":
+            client_u += 1
+            total_u += total_amount
+        elif option.upper() == "T":
+            client_t += 1
+            total_t += total_amount
+        elif option.upper() == "R":
+            client_r += 1
+            total_r += total_amount
+        print_invoice(client)
+        if input("Do you want to exit?: Y-Yes - N-No") == "Y":
+            break
+
+        print("Clients for U:", client_u)
+        print("Clients for T:", client_t)
+        print("Clients for R:", client_r)
+        print("Total discounts:", total_discounts)
+
+
+
 
 
 main()
