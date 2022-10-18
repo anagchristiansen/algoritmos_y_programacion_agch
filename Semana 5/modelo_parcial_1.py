@@ -11,7 +11,7 @@ def get_user_option(dict):
                 print(f"{key} - {value_interno}", end ="")
         print("")
 
-    return input("Please enter ")
+    return input("Please enter the test")
 
 
 def get_client_data(study):
