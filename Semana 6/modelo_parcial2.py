@@ -90,7 +90,6 @@ def main():
             discount_c += discount
         elif type_payment == "r":
             discount_r += discount
-
         if total >  max_purchase:
             rif_max = rif 
             max_purchase = total
@@ -108,9 +107,6 @@ def main():
     print(f"Loss on discounts: \nOne time: {discount_c}$ \nCredit: {discount_r}$\n")
     print(f"The higuest shop rif: {rif_max}\n")
     print(f"Total today: {total_day}$ \n")
-
-
-
 
 
 
